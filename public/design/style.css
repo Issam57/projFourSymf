@@ -1,0 +1,18 @@
+#titre {
+    color: black;
+    text-shadow: 1px 1px 1px black;
+    box-shadow: 1px 1px 6px black;
+    padding: 30px;
+}
+
+.clignotant
+{
+    animation-name: clignotant;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes clignotant {
+    from {background-color: red; color: white}
+    to {background-color: white; color: black}
+}

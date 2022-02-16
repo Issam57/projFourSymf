@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Login{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                &nbsp;
+            </div>
+            <div class="col-md-6">
+                <div class="bg-dark text-white py-3 px-3 mt-5">
+                    <h1 class="mb-3 text-center">Connexion</h1>
+
+                    {% if hasError %}
+                    
+                        <div class="alert alert-danger text-center">
+                            Badge ou mot de passe incorrect, veuillez réessayer svp !
+                        </div>
+                    
+                    {% endif %}
+
+                    <form action="{{ path('login') }}" method="post">
+                        <div class="form-group">
+                            <label for="badge">Badge</label>
+                            <input type="number" name="_username" id="badge" class="form-control" placeholder="Entrez votre badge"  required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mdp">Mot de passe</label>
+                            <input type="password" name="_password" id="mdp" class="form-control" placeholder="Mot de passe" required>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Connexion</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
