@@ -17,6 +17,11 @@ class HomeController extends AbstractController
      */
     public function index(FirstRepository $repo1, SecondRepository $repo2, ArretRepository $repo3, CalculDate $calculDate): Response
     {
+
+        //$test = $this->getUser()->getId();
+
+        //dd($test);
+
         $first = $repo1->findAll();
         $second = $repo2->findAll();
         $arret = $repo3->findAll();
@@ -29,7 +34,8 @@ class HomeController extends AbstractController
             'firsts' => $first,
             'seconds' => $second,
             'arrets' => $arret,
-            'dateNow' => $dateNow
+            'dateNow' => $dateNow,
+            'user' =>$this->getUser()
 
 
         ]);

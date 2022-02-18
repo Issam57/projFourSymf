@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\FirstRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -37,6 +39,7 @@ class First
      */
     private $emplacement;
 
+    
     /**
      * @ORM\Column(type="text", nullable=true)
      */
@@ -45,7 +48,8 @@ class First
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="firsts")
      */
-    private $util;
+    private $utilisateur;
+
 
     public function getId(): ?int
     {
@@ -112,15 +116,17 @@ class First
         return $this;
     }
 
-    public function getUtil(): ?User
+    public function getUtilisateur(): ?User
     {
-        return $this->util;
+        return $this->utilisateur;
     }
 
-    public function setUtil(?User $util): self
+    public function setUtilisateur(?User $utilisateur): self
     {
-        $this->util = $util;
+        $this->utilisateur = $utilisateur;
 
         return $this;
     }
+
+
 }

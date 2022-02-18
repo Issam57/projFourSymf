@@ -5,9 +5,11 @@ namespace App\Controller;
 use App\Entity\Arret;
 use App\Entity\First;
 use App\Entity\Second;
+use App\Entity\User;
 use App\Form\ArretType;
 use App\Form\FirstType;
 use App\Form\SecondType;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,12 +24,14 @@ class AnnealController extends AbstractController
     public function first(Request $request, EntityManagerInterface $manager): Response
     {
         $first = new First();
+
         $form = $this->createForm(FirstType::class, $first);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $first = $form->getData();
+
+            $first->setUtilisateur($this->getUser());
 
             $manager->persist($first);
 
@@ -57,7 +61,8 @@ class AnnealController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $second = $form->getData();
+            
+            $second->setUtilisateur($this->getUser());
 
             $manager->persist($second);
 
@@ -73,6 +78,7 @@ class AnnealController extends AbstractController
 
         return $this->render('anneal/second.html.twig', [
             "form" => $form->createView()
+            
         ]);
     }
 
@@ -87,7 +93,8 @@ class AnnealController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $arret = $form->getData();
+
+            $arret->setUtilisateur($this->getUser());
 
             $manager->persist($arret);
 

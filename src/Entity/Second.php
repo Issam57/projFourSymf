@@ -42,6 +42,11 @@ class Second
      */
     private $commentaires;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="seconds")
+     */
+    private $utilisateur;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -103,6 +108,18 @@ class Second
     public function setCommentaires(?string $commentaires): self
     {
         $this->commentaires = $commentaires;
+
+        return $this;
+    }
+
+    public function getUtilisateur(): ?User
+    {
+        return $this->utilisateur;
+    }
+
+    public function setUtilisateur(?User $utilisateur): self
+    {
+        $this->utilisateur = $utilisateur;
 
         return $this;
     }

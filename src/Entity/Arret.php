@@ -32,6 +32,11 @@ class Arret
      */
     private $commentaires;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="arrets")
+     */
+    private $utilisateur;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +74,18 @@ class Arret
     public function setCommentaires(?string $commentaires): self
     {
         $this->commentaires = $commentaires;
+
+        return $this;
+    }
+
+    public function getUtilisateur(): ?User
+    {
+        return $this->utilisateur;
+    }
+
+    public function setUtilisateur(?User $utilisateur): self
+    {
+        $this->utilisateur = $utilisateur;
 
         return $this;
     }

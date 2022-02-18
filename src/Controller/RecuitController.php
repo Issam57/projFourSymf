@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class RecuitController extends AbstractController
 {
-    private $dateRecuit;
+    private $dateRecuit = "";
     private $test;
 
     /**
