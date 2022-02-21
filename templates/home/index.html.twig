@@ -7,7 +7,13 @@
     <h1 class="text-center mt-3 mb-3 "><i class="far fa-calendar-alt"></i> <u>Date d'aujourd'hui :</u></h1>
     <h2 class="text-center border border-dark border-4 p-2"><b>{{ dateNow|date("d/m/Y H:i") }}</b></h2>
 
+
+
+
     <hr>
+
+
+
 
     <h2 class="mb-3 text-center mt-5"><u>POSTE EN COURS</u></h2>
     <div class="text-center mb-3">
@@ -42,7 +48,7 @@
                                 <p><u>{% if first.emplacement != "" %}Base {% endif %} {{ first.emplacement }}</u></p>
                                 <p>{{ first.commentaires }}</p>
                                 <a href="{{ path('edit_first', {'id': first.id}) }}" class="btn btn-secondary">Modifier</a>
-                                <a href="{{ path('delete_first', {'id': first.id}) }}" class="btn btn-danger">Supprimer</a>
+                                <a href="{{ path('delete_first', {'id': first.id}) }}" class="btn btn-danger" onclick="return confirm(`Êtes-vous sur de vouloir supprimer le four {{ first.four }} ?`)">Supprimer</a>
                             </div>
                         </div>
                     </div>
@@ -50,7 +56,12 @@
         </div>
 
 
+
+
     <hr class="mt-5">
+
+
+
 
     <h2 class="mb-3 text-center mt-5"><u>POSTE SUIVANT</u></h2>
         <div class="text-center mb-3">
@@ -77,7 +88,7 @@
                             <p><u>{% if second.emplacement != "" %}Base {% endif %}{{ second.emplacement }}</u></p>
                             <p>{{ second.commentaires }}</p>
                             <a href="{{ path('edit_second', {'id': second.id}) }}" class="btn btn-secondary">Modifier</a>
-                            <a href="{{ path('delete_second', {'id': second.id}) }}" class="btn btn-danger">Supprimer</a>
+                            <a href="{{ path('delete_second', {'id': second.id}) }}" class="btn btn-danger" onclick="return confirm(`Êtes-vous sur de vouloir supprimer le four {{ second.four }} ?`)">Supprimer</a>
                         </div>
                     </div>
                 </div>
@@ -85,7 +96,13 @@
         </div>
     </div>
 
+
+
+
     <hr class="mt-5">
+
+
+
 
     <h2 class="mb-3 text-center mt-5"><u>FOUR À L'ARRÊT</u></h2>
     <div class="text-center mb-3">
@@ -104,7 +121,7 @@
                             <p ><u>{% if arret.emplacement != "" %}Base {% endif %} {{ arret.emplacement }}</u></p>
                             <p class="card-text">{{ arret.commentaires }}</p>
                             <a href="{{ path('edit_arret', {'id': arret.id}) }}" class="btn btn-secondary">Modifier</a>
-                            <a href="{{ path('delete_arret', {'id': arret.id}) }}" class="btn btn-warning">Supprimer</a>
+                            <a href="{{ path('delete_arret', {'id': arret.id}) }}" class="btn btn-warning" onclick="return confirm(`Êtes-vous sur de vouloir supprimer le four {{ arret.four }} ?`)">Supprimer</a>
                         </div>
                     </div>
                 </div>

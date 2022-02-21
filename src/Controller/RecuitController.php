@@ -6,10 +6,11 @@ use App\Entity\Recuit;
 use App\Form\RecuitType;
 use App\Others\CalculDate;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class RecuitController extends AbstractController
 {
@@ -18,6 +19,7 @@ class RecuitController extends AbstractController
 
     /**
      * @Route("/recuit", name="recuit")
+     * @IsGranted("ROLE_USER")
      *
      */
     public function index(Request $request, EntityManagerInterface $manager, CalculDate $calculDate): Response

@@ -2,24 +2,26 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use App\Entity\Arret;
 use App\Entity\First;
 use App\Entity\Second;
-use App\Entity\User;
 use App\Form\ArretType;
 use App\Form\FirstType;
 use App\Form\SecondType;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AnnealController extends AbstractController
 {
     /**
      * @Route("/first", name="first")
+     * @IsGranted("ROLE_USER")
      */
     public function first(Request $request, EntityManagerInterface $manager): Response
     {
@@ -52,6 +54,7 @@ class AnnealController extends AbstractController
 
     /**
      * @Route("/second", name="second")
+     * @IsGranted("ROLE_USER")
      */
     public function second(Request $request, EntityManagerInterface $manager): Response
     {
@@ -84,6 +87,7 @@ class AnnealController extends AbstractController
 
     /**
      * @Route("/arret", name="arret")
+     * @IsGranted("ROLE_USER")
      */
     public function arret(Request $request, EntityManagerInterface $manager): Response
     {
@@ -162,6 +166,7 @@ class AnnealController extends AbstractController
 
     /**
     *@Route("/edit_first/{id}", name="edit_first")
+    *@IsGranted("ROLE_USER")
      */
     public function editFirst(Request $request, EntityManagerInterface $manager, First $first) {
 
@@ -188,6 +193,7 @@ class AnnealController extends AbstractController
     }
     /**
      *@Route("/edit_second/{id}", name="edit_second")
+     *@IsGranted("ROLE_USER")
      */
     public function editSecond(Request $request, EntityManagerInterface $manager, Second $second) {
 
@@ -215,6 +221,7 @@ class AnnealController extends AbstractController
 
     /**
      *@Route("/edit_arret/{id}", name="edit_arret")
+     *@IsGranted("ROLE_USER")
      */
     public function editArret(Request $request, EntityManagerInterface $manager, Arret $arret) {
 
