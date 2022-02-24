@@ -2,20 +2,20 @@
 
 namespace App\Controller;
 
-use App\Entity\User;
 use App\Entity\Arret;
 use App\Entity\First;
 use App\Entity\Second;
+use App\Entity\User;
 use App\Form\ArretType;
 use App\Form\FirstType;
 use App\Form\SecondType;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AnnealController extends AbstractController
 {
